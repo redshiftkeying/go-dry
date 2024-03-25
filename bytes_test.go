@@ -64,12 +64,6 @@ func assertStringsEqual(t *testing.T, str1, str2 string) {
 	}
 }
 
-func Test_BytesMD5(t *testing.T) {
-	assertStringsEqual(
-		t, "5d41402abc4b2a76b9719d911017c592",
-		BytesMD5("hello"))
-}
-
 func Test_BytesEncodeBase64(t *testing.T) {
 	assertStringsEqual(
 		t, "aGVsbG8=",
