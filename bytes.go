@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"compress/flate"
 	"compress/gzip"
-	"crypto/md5" //#nosec
 	"encoding/base64"
 	"encoding/hex"
 	"fmt"
@@ -26,12 +25,6 @@ func BytesReader(data interface{}) io.Reader {
 		return strings.NewReader(s.Error())
 	}
 	return nil
-}
-
-func BytesMD5(data string) string {
-	hash := md5.New() //#nosec
-	hash.Write([]byte(data))
-	return fmt.Sprintf("%x", hash.Sum(nil))
 }
 
 func BytesEncodeBase64(str string) string {
