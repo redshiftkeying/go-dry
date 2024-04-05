@@ -151,7 +151,9 @@ func (list ErrorList) Last() error {
 func (list *ErrorList) Collect(args ...interface{}) {
 	for _, a := range args {
 		if err, _ := a.(error); err != nil {
-			*list = append(*list, err)
+			if list != nil {
+				*list = append(*list, err)
+			}
 		}
 	}
 }
